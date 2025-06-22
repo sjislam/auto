@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mutual Auto & Tire Service</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: black;
+        }
+
+        header {
+            background-image: url(banner.jpg);
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            width: 100%;
+            height: 385px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            text-align: center;
+            color: white;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin-bottom: -80px;
+            padding: 10px;
+            border-radius: 10px;
+            color: blue;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .section, .sidebar {
+            flex: 1 1 100%;
+            padding: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .section {
+                flex: 1 1 70%;
+            }
+
+            .sidebar {
+                flex: 1 1 30%;
+            }
+        }
+
+        .section h2, .sidebar h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .section h3 {
+            font-size: 24px;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .section p, .sidebar p {
+            line-height: 1.8;
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .info img {
+            margin-right: 10px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .carousel img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 1s ease-in-out;
+            opacity: 0;
+        }
+
+        .carousel img.active {
+            opacity: 1;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255,255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            padding: 10px;
+            z-index: 2;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .arrow:hover {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .arrow.left {
+            left: 10px;
+        }
+
+        .arrow.right {
+            right: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px; 
+        }
+
+        th,
+        td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            background: url(check-icon.png) no-repeat left center;
+            background-size: 24px 24px;
+            padding-left: 40px;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 350px;
+            border: 1px solid #ddd;
+            margin-top: 15px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            clear: both;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 20px;
+        }
+        
+        #currentDateTime {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f2f2f2;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mutual Auto & Tire Service</h1>
+    </header>
+    <div class="container">
+        <div class="section">
+            <h2>Welcome to Mutual Auto & Tire Service</h2>
+            <div class="info">
+                <img src="location-icon.png" alt="Home Icon" width="30" height="30">
+                <a href="https://maps.app.goo.gl/XWR3ozFUrukZEyB98" target="_blank">14120 Tukwila International Blvd, Tukwila, WA 98168</a>
+            </div>
+            <div class="info">
+                <img src="phone-icon.png" alt="Phone Icon" width="30" height="30">
+                <a href="tel:+12068773642">(206) 877-3642</a>
+            </div>
+            <div class="info">
+                <img src="email-icon.png" alt="Email Icon" width="35" height="35">
+                <a href="mailto:mutualautoservice@gmail.com">mutualautoservice@gmail.com</a>
+            </div>
+
+            <p>At Mutual Auto & Tire Service, we are committed to providing exceptional service and care for your vehicle.</p>
+            
+            <h3>Our Services</h3>
+            <ul>
+                <li>Oil Changes</li>
+                <li>Tune-Ups Service</li>
+                <li>New & Used Tires</li>
+                <li>Tire Rotation and Balancing</li>
+                <li>Brake Inspection and Repair</li>
+                <li>Battery Testing and Replacement</li>
+                <li>Check Engine Light Diagnostics</li>
+                <li>Water Pump</li>
+                <li>Shocks & Struts</li>
+                <li>Hub Bearing</li>
+                <li>Hybrid Battery</li>
+                <li>Lights</li>
+                <li>And many other automotive services!</li>
+            </ul>
+            
+            <h3>Why Choose Us?</h3>
+            <p>With years of experience and a team of dedicated professionals, Mutual Auto Service is your trusted partner for all your auto maintenance and repair needs. We pride ourselves on providing exceptional customer service and delivering top-notch workmanship. Our technicians are highly skilled and trained to handle a wide range of automotive issues.</p>
+
+            <p>At Mutual Auto Service, we understand the importance of using quality parts and equipment. That's why we use high quality parts and have many new tools and equipments to ensure the best quality of service for your vehicle. We are committed to keeping up with the latest industry advancements and staying updated on the latest technologies and techniques in auto repair.</p>
+
+            <p>Customer satisfaction is our top priority. We strive to exceed your expectations and provide you with a hassle-free experience and at prices you can't find anywhere else. Whether you need a simple or major repair, you can trust us to get the job done.</p>
+            
+            <h3>Customer Testimonials</h3>
+            <p>"Unbeatable Prices and Exceptional Work"</p>
+            <p>"Great service and friendly staff! Highly recommend."</p>
+            <p>"They fixed my car quickly and at a fair price. Will definitely be back."</p>
+            <p>"Outstanding service! The team at Mutual Auto Service went above and beyond to fix my car."</p>
+            <p>"Precios competitivos. Excelente servicio. Atencion rapida. (Competitive prices. Excellent service. Fast attention)"</p>
+
+        </div>
+        <div class="sidebar">
+            <h2>Opening Hours</h2>
+            <div id="currentDateTime"></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Opening Hours</th>
+                        <th>Closing Hours</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Monday</td>
+                        <td>9:00 AM</td>
+                        <td>8:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Tuesday</td>
+                        <td>9:00 AM</td>
+                        <td>8:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Wednesday</td>
+                        <td>9:00 AM</td>
+                        <td>8:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Thursday</td>
+                        <td>9:00 AM</td>
+                        <td>8:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Friday</td>
+                        <td>9:00 AM</td>
+                        <td>8:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Saturday</td>
+                        <td>9:00 AM</td>
+                        <td>8:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday</td>
+                        <td>9:00 AM</td>
+                        <td>8:00 PM</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p style="font-size: 18px; font-style: italic; font-weight: bold; text-align: center; color: red;">* Tire service closes at 6:00 PM daily.</p>
+
+            <div class="carousel">
+                <img src="image1.jpg" alt="Auto Service Image 1" class="active">
+                <img src="image2.jpg" alt="Auto Service Image 2">
+                <img src="image3.jpg" alt="Auto Service Image 3">
+                <button class="arrow left" onclick="showPreviousImage()">&#10094;</button>
+                <button class="arrow right" onclick="showNextImage()">&#10095;</button>
+            </div>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10786.891732667702!2d-122.2904031!3d47.4758284!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54904318d7323429%3A0x7a832e0bd10f92c9!2sMutual%20%26%20Best%20Tires%20Service!5e0!3m2!1sen!2sus!4v1714386979290!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    <footer>
+    <p>&copy; <script>document.write(new Date().getFullYear());</script> Mutual Auto Service. All rights reserved.</p>
+    </footer>
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.carousel img');
+
+        function showNextImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+
+        function showPreviousImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+            images[currentIndex].classList.add('active');
+        }
+
+        setInterval(showNextImage, 5500);
+    </script>
+<script>
+    function updateDateTime() {
+        const now = new Date();
+        const options = { weekday: 'long', month: 'short', day: 'numeric' };
+        const dateString = now.toLocaleDateString('en-US', options);
+        const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+
+        document.getElementById('currentDateTime').innerText = `Today is ${dateString}, ${timeString}`;
+    }
+
+    updateDateTime();
+    setInterval(updateDateTime, 0000);
+</script>
+</body>
+</html>
